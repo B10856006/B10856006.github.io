@@ -4,11 +4,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>B10856006-4</title>
+    <style type="text/css">
+        * {
+            /*消除頁面框線*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .header {
+            height: 50px;
+            background-color: rgb(228, 188, 143);
+            position: relative;
+        }
+        
+        .bth {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            display: block;
+            /*規定元素以區塊方式呈現*/
+            position: absolute;
+            /*相對於它的父元素進行絕對定位*/
+            top: 5px;
+            right: 10px;
+        }
+        
+        .bth span {
+            opacity: 0;
+            /*區塊內透明*/
+            width: 1px;
+            height: 1px;
+            display: block;
+            overflow: hidden;
+            /*自動隱藏超出的文字或圖片*/
+        }
+        
+        .bth::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: #aaa;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px #aaa, 0px -8px 0px #aaa;
+            /*影子*/
+        }
+        
+        nav {
+            width: 40%;
+            height: 300vh;
+            /*view height 是螢幕可是範圍高度的百分比*/
+            background-color: rgb(221, 166, 103);
+            position: absolute;
+            top: 50px;
+            left: -100%;
+        }
+        
+        nav a {
+            /*設置裡面的超連結*/
+            display: block;
+            /*link變直排*/
+            text-decoration: none;
+            color: rgb(119, 18, 18);
+            padding: 10px 20px;
+            border-bottom: 1px solid #993939;
+        }
+        
+        #menu {
+            position: absolute;
+            /*讓最上方的checkbox隱藏*/
+        }
+        
+        #menu:checked~.header nav {
+            left: 0;
+        }
+        
+        img {
+            vertical-align: bottom;
+        }
+        
+        .item-group {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+        }
+        
+        .bg img {
+            /*最上方圖片*/
+            width: 100%;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .title h2 {
+            text-align: center;
+            font-size: 46px;
+        }
+        
+        .title {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: rgb(228, 188, 143);
+            color: rgb(119, 18, 18)
+        }
+        
+        .title p {
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .item {
+            margin: 0 10px 20px;
+        }
+        
+        .item .text h3 {
+            font-size: 24px;
+            text-align: center;
+            color: rgb(51, 31, 8);
+        }
+        
+        .item .pic img {
+            /*設置全圖片*/
+            width: 100%;
+        }
+        
+        .two {
+            margin: 60px 0;
+            background-color: rgb(168, 156, 129);
+        }
+        
+        .two .item {
+            display: flex;
+            margin: 0;
+        }
+        
+        .two .item .pic,
+        .two .item .text {
+            width: 650px;
+            margin: 15px;
+        }
+        
+        .two .item .text {
+            display: flex;
+            padding: 0 10px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .pic {
+            width: 310px;
+            height: 240px;
+        }
+        
+        @media screen and (min-width:768px) {
+            /*設定桌電及平板顯示*/
+            .item-group {
+                display: flex;
+                /*彈性盒子 又稱flexbox*/
+            }
+            .bth {
+                display: none;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                /*分散對齊*/
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+                /*透明顏色*/
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <input type="checkbox" name="" id="menu">
+
+    <div class="header">
+        <h1 class="logo">
+            <a href="#"><img src="https://media.istockphoto.com/vectors/vector-bakery-shop-pastry-elements-and-bread-icons-illustration-can-vector-id1125091344" width="50px" height="50px">
+        </h1>
+
+        <label for="menu" class="btn"> 
+                <span>魔女の宅急便</span>
+        </label>
+
+        <nav>
+            <a href="#"><b>首頁</b></a>
+            <a href="#1"><b>店鋪簡介</b></a>
+            <a href="#"><b>商品區</b></a>
+            <a href="#"><b>聯絡資訊</b></a>
+        </nav>
+    </div>
+
+    <div class="bg">
+        <img src=https://images3.alphacoders.com/245/thumb-1920-245067.jpg>
+    </div>
+
+    <div class="about">
+        <div class="wrap">
+            <div class="title">
+                <h2><span style="font-family:DFKai-sb;">魔女の宅急便</span></h2>
+                <p>いらっしゃいませ</p>
+            </div>
+            <div class="item-group">
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://lh3.googleusercontent.com/proxy/N4R6uCtwDDEKDoolok7mJhDTjUkDQrGDw9HMNi649FXnZxr-IIUdk0a_XWrFlh17JJWXNewPmHf-VjLBSZ7jfzB_K1LaL8GLfMo9prn3YS8JX8qZ2qtVTiIU8JvGR2r7sFIXbtlEFT6qyVUVlzDejq68XPftvE-EUMeW6vCDGh6Sn5UHgavSOePR4uLu8ameh2XnvezpGl723_1BhjjPBNMF4TePIFA">
+                    </div>
+                    <div class="text">
+                        <h3>title</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://inews.gtimg.com/newsapp_match/0/10146581289/0">
+                    </div>
+                    <div class="text">
+                        <h3>title</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://bpic.588ku.com/element_origin_min_pic/17/09/19/3b14732a8e1f4f33047dcb004ecb0a08.jpg">
+                    </div>
+                    <div class="text">
+                        <h3>title</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://twgreatdaily.com/images/elastic/oKh/oKh4-W8Bgx9BqZZIYVOx.jpg">
+                    </div>
+                    <div class="text">
+                        <h3>title</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="two">
+        <div class="wrap">
+            <div class="item-group">
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://spider.ws.126.net/ed44a60a80f1a44ae4431d24789bcf99.gif" width="330" height="240">
+                    </div>
+                    <div class="text">
+                        <a name="1">
+                            <h3><span style="font-family:DFKai-sb;">店鋪簡介</span></h3>
+                            <h3> WHEN HEALTH TASTES GOOD </h3>
+                            <hr style="background-color:rgb(78, 38, 38) ;border-color: rgb(78, 38, 38); height:1px ">
+                            <p><span style="color:rgb(51, 31, 8)">琪琪是一個實習魔女。依家族慣例，13歲的琪琪該離開家鄉，到新的城市展開獨立
+                            <br>生活，修行成正式的魔女。</p>
+                        <br>她用她媽媽的掃帚，帶著她的同伴黑貓吉吉去開展她的新生活。琪琪遷入了美麗的
+                        <br>城市克里克。起初她不能適應城市的生活節奏，在麵包店女店主索娜的幫助下，琪
+                        <br>琪用掃帚飛行的專長，開始了幫別人送快遞的業務。後來琪琪在經歷了一些挫折之
+                        <br>後也成長了許多，她必須獨自面對孤獨、憂慮和思鄉的情緒。</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; copyright 2020 by css
+    </div>
+
+
+
+
 
 </body>
 
