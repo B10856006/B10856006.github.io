@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>〈魔女の宅急便〉— 最新活動</title>
+    <link rel="icon" href="https://pic.90sjimg.com/design/00/47/13/13/592243baaaec7.png">
+    <style type="text/css">
+        * {
+            /*消除頁面框線*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            background-color: silver;
+            background-image: url('https://www.vegandaohe.com.tw/assets/front/images/@2x/img_bg_for_l@2x.png');
+        }
+        
+        .header {
+            height: 50px;
+            background-color: rgb(228, 188, 143);
+            position: relative;
+        }
+        
+        .bth {
+            width: 40px;
+            height: 40px;
+            display: block;
+            /*規定元素以區塊方式呈現*/
+            position: absolute;
+            /*相對於它的父元素進行絕對定位*/
+            top: 5px;
+            right: 10px;
+        }
+        
+        .bth span {
+            opacity: 0;
+            /*區塊內透明*/
+            width: 1px;
+            height: 1px;
+            display: block;
+            overflow: hidden;
+            /*自動隱藏超出的文字或圖片*/
+        }
+        
+        .bth::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: rgb(59, 18, 11);
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px rgb(59, 18, 11), 0px -8px 0px rgb(59, 18, 11);
+            /*影子*/
+        }
+        
+        nav {
+            width: 40%;
+            height: 300vh;
+            /*view height 是螢幕可是範圍高度的百分比*/
+            background-color: rgb(221, 166, 103);
+            position: absolute;
+            top: 50px;
+            left: -100%;
+        }
+        
+        nav a {
+            /*設置裡面的超連結*/
+            display: block;
+            /*link變直排*/
+            text-decoration: none;
+            color: rgb(119, 18, 18);
+            padding: 10px 20px;
+            border-bottom: 1px solid #993939;
+        }
+        
+        nav a:hover {
+            color: rgb(75, 57, 33);
+        }
+        
+        #menu {
+            position: absolute;
+            /*讓最上方的checkbox隱藏*/
+        }
+        
+        #menu:checked~.header nav {
+            left: 0;
+        }
+        
+        img {
+            vertical-align: bottom;
+        }
+        
+        .item-group {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+        }
+        
+        .bg img {
+            /*最上方圖片*/
+            width: 100%;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .title h2 {
+            text-align: center;
+            font-size: 46px;
+        }
+        
+        .title {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: rgb(228, 188, 143);
+            color: rgb(119, 18, 18)
+        }
+        
+        .title p {
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .item {
+            margin: 0 10px 20px;
+        }
+        
+        .item .text h3 {
+            font-size: 24px;
+            text-align: center;
+            color: rgb(51, 31, 8);
+        }
+        
+        .item .pic img {
+            /*設置全圖片*/
+            width: 330px;
+            height: 330px;
+        }
+        
+        .item .pic2 img {
+            /*設置全圖片*/
+            width: 100%;
+            height: 380px;
+        }
+        
+        .item .pic3 img {
+            /*設置全圖片*/
+            width: 210px;
+            height: 210px;
+        }
+        
+        .two {
+            margin: 60px 0;
+            background-color: rgb(168, 156, 129);
+        }
+        
+        .two .item {
+            display: flex;
+            margin: 0;
+        }
+        
+        .two .item .text {
+            display: flex;
+            padding: 0 10px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .slider_container {
+            margin: 30px auto;
+            width: 720px;
+            height: 450px;
+            position: relative;
+            border: 10px solid;
+            border-color: #fff;
+            border-bottom-width: 10px;
+            background-color: #f5f5f5;
+            box-shadow: #666 0 0 5px;
+            z-index: -1;
+        }
+        
+        .slider_container div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        
+        .slider_container div {
+            -webkit-animation: round 25s linear infinite;
+            animation: round 25s linear infinite;
+        }
+        
+        @-webkit-keyframes round {
+            4% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 0 - 1秒 淡入*/
+            }
+            20% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 1- 5秒靜止*/
+            }
+            24% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+                /* 5-6秒淡出*/
+            }
+        }
+        
+        @keyframes round {
+            4% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 0 - 1秒 淡入*/
+            }
+            20% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                /* 1- 5秒靜止*/
+            }
+            24% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+                /* 5-6秒淡出*/
+            }
+        }
+        
+        .slider_container div:nth-child(5) {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+        }
+        
+        .slider_container div:nth-child(4) {
+            -webkit-animation-delay: 5s;
+            animation-delay: 5s;
+        }
+        
+        .slider_container div:nth-child(3) {
+            -webkit-animation-delay: 10s;
+            animation-delay: 10s;
+        }
+        
+        .slider_container div:nth-child(2) {
+            -webkit-animation-delay: 15s;
+            animation-delay: 15s;
+        }
+        
+        .slider_container div:nth-child(1) {
+            -webkit-animation-delay: 20s;
+            animation-delay: 20s;
+        }
+        
+        .slider_container:hover div {
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+        
+        .slider_container img {
+            width: 720px;
+            height: 450px;
+        }
+        
+        @media screen and (min-width:768px) {
+            /*設定桌電及平板顯示*/
+            .item-group {
+                display: flex;
+                /*彈性盒子 又稱flexbox*/
+            }
+            .bth {
+                display: none;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                /*分散對齊*/
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+                /*透明顏色*/
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function link2course() {
+            course = prompt("請輸入信箱：", "請輸入您的電子信箱");
+            course2 = prompt('請輸入訊息（若商品有問題，請留下商品編號。）：', '請輸入訊息')
+            if (course != null && course2 != null)
+                alert('已收到您的回覆，我們將盡快為您處理。');
+        }
+    </script>
+
+    <input type="checkbox" name="" id="menu">
+
+    <div class="header">
+        <h1 class="logo">
+            <a href="#"><img src="https://pic.90sjimg.com/design/00/47/13/13/592243baaaec7.png" width="50px" height="50px">
+        </h1>
+
+        <label for="menu" class="bth"> 
+                <span style="color:rgb(59, 18, 11)">☰</span>
+        </label>
+
+        <nav>
+            <a href="index.html"><b>首頁</b></a>
+            <a href="about.html"><b>關於我們</b></a>
+            <a href="products.html"><b>商品專區</b></a>
+            <a href="javascript:link2course()"><b>聯絡資訊</b></a>
+        </nav>
+    </div>
+
+    <div class="bg">
+        <img src=https://images3.alphacoders.com/245/thumb-1920-245067.jpg>
+    </div>
+
+
+    <div class="about">
+        <div class="wrap">
+            <div class="title">
+                <h2><span style="font-family:DFKai-sb;">魔女の宅急便</span></h2>
+                <p>いらっしゃいませ</p>
+            </div>
+
+            <div class="slider_container">
+                <div>
+                    <img src="https://lh3.googleusercontent.com/proxy/wgS-kORiO1EPJXllFg3rZsRkCpt414I-Ivz0jivZL4JAHV-IKfE1KUZvfMVZ9ZZ8fx-bQIXXR78LIoQoCfg9mCPZTRpZ5gLBf4usstujlRBu7YcjJ2b5I35aUY9SaY-jcLtn9lY" alt="pure css3 slider" />
+                </div>
+                <div>
+                    <img src="https://tnl-static.s3-ap-northeast-1.amazonaws.com/2019/12/xjewsq8p3uu7hbrva908elh5d96y3k.jpeg" alt="pure css3 slider" />
+                </div>
+                <div>
+                    <img src="https://5b0988e595225.cdn.sohucs.com/images/20190406/e0837384aac1408e81a24ed5facbf20b.gif" alt="pure css3 slider" />
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/originals/1a/ed/38/1aed38aa2baedb4a65671bb07154489e.gif" alt="pure css3 slider" />
+                </div>
+                <div>
+                    <img src="https://n.sinaimg.cn/fashion/transform/769/w500h269/20180516/bPvf-harvfht9360376.gif" alt="pure css3 slider" />
+                </div>
+            </div>
+
+            <div class="two ">
+                <div class="wrap ">
+                    <div class="item-group ">
+                        <div class="item">
+                            <div class="text">
+                                <h3><span style="font-family:DFKai-sb; ">最新活動</span></h3>
+                                <h3> NEW </h3>
+                                <hr style="background-color:rgb(78, 38, 38) ;border-color: rgb(78, 38, 38); height:1.5px ">
+                                <br><span style="color:rgb(51, 31, 8);font-size: 20px ">
+                                    <p>  消費滿300獲得一點，集滿10點加價購限量聯名贈品。</p>
+                                    <br>▶ 借物少女艾莉緹 1:1小屋 10點 +$1,099 ◀ 
+                                    <br>市價 $1,990，限量10組。
+                                    <br>▶ 借物少女艾莉緹 1:1人偶 10點 +$899 ◀ 
+                                    <br>市價 $1,500，限量20隻，不可挑款。</span>
+                            </div>
+                            <div class="pic2">
+                                <img src="https://static-movie.a.88cdn.com/0498da35bceb455b0064eafbeb894f84?imageView2/2/w/1081/q/85/interlace/1/format/gif" width="330 " height="240 ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="footer ">
+                &copy; copyright 2020 by css
+            </div>
+
+
+
+
+
+</body>
+
+</html>

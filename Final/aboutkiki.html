@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>〈魔女の宅急便〉— 關於我們</title>
+    <link rel="icon" href="https://pic.90sjimg.com/design/00/47/13/13/592243baaaec7.png">
+    <style type="text/css">
+        * {
+            /*消除頁面框線*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            background-color: silver;
+            background-image: url('https://www.vegandaohe.com.tw/assets/front/images/@2x/img_bg_for_r@2x.png');
+        }
+        
+        .header {
+            height: 50px;
+            background-color: rgb(228, 188, 143);
+            position: relative;
+        }
+        
+        .bth {
+            width: 40px;
+            height: 40px;
+            display: block;
+            /*規定元素以區塊方式呈現*/
+            position: absolute;
+            /*相對於它的父元素進行絕對定位*/
+            top: 5px;
+            right: 10px;
+        }
+        
+        .bth span {
+            opacity: 0;
+            /*區塊內透明*/
+            width: 1px;
+            height: 1px;
+            display: block;
+            overflow: hidden;
+            /*自動隱藏超出的文字或圖片*/
+        }
+        
+        .bth::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: rgb(59, 18, 11);
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px rgb(59, 18, 11), 0px -8px 0px rgb(59, 18, 11);
+            /*影子*/
+        }
+        
+        nav {
+            width: 40%;
+            height: 300vh;
+            /*view height 是螢幕可是範圍高度的百分比*/
+            background-color: rgb(221, 166, 103);
+            position: absolute;
+            top: 50px;
+            left: -100%;
+        }
+        
+        nav a {
+            /*設置裡面的超連結*/
+            display: block;
+            /*link變直排*/
+            text-decoration: none;
+            color: rgb(119, 18, 18);
+            padding: 10px 20px;
+            border-bottom: 1px solid #993939;
+        }
+        
+        nav a:hover {
+            color: rgb(75, 57, 33);
+        }
+        
+        #menu {
+            position: absolute;
+            /*讓最上方的checkbox隱藏*/
+        }
+        
+        #menu:checked~.header nav {
+            left: 0;
+        }
+        
+        img {
+            vertical-align: bottom;
+        }
+        
+        .item-group {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+        }
+        
+        .bg img {
+            /*最上方圖片*/
+            width: 100%;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .title h2 {
+            text-align: center;
+            font-size: 46px;
+        }
+        
+        .title {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: rgb(228, 188, 143);
+            color: rgb(119, 18, 18)
+        }
+        
+        .title p {
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .item {
+            margin: 0 10px 20px;
+        }
+        
+        .item .text h3 {
+            font-size: 24px;
+            text-align: center;
+            color: rgb(51, 31, 8);
+        }
+        
+        .item .pic img {
+            /*設置全圖片*/
+            width: 330px;
+            height: 330px;
+        }
+        
+        .item .pic2 img {
+            /*設置全圖片*/
+            width: 100%;
+        }
+        
+        .two {
+            margin: 60px 0;
+            background-color: rgb(168, 156, 129);
+        }
+        
+        .two .item {
+            display: flex;
+        }
+        
+        .two .item .text2 {
+            width: 1400px;
+            margin: 15px;
+        }
+        
+        .item .text2 h3 {
+            font-size: 24px;
+            text-align: center;
+            color: rgb(51, 31, 8);
+        }
+        
+        .two .item .pic2,
+        .two .item .text {
+            width: 650px;
+            margin: 15px;
+        }
+        
+        .two .item .text {
+            display: flex;
+            padding: 0 10px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .three {
+            margin: 50px;
+            background: url('https://a-static.besthdwallpaper.com/mo-nu-zhai-ji-bian-ji-ji-he-qi-qi-qiangzhi-tw-1920x1080-20233_48.jpg');
+        }
+        
+        .three .kikiitem {
+            display: flex;
+        }
+        
+        .three .kikiitem .kikitext {
+            width: 1400px;
+            margin: 15px;
+            font-family: DFKai-sb;
+        }
+        
+        .three .kikiitem .kikipic,
+        .three .kikiitem .kikitext {
+            width: 680px;
+            margin: 15px;
+        }
+        
+        .three .kikiitem .kikitext {
+            display: flex;
+            padding: 0 10px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .kikiitem .kikitext h2 {
+            font-size: 40px;
+            text-align: center;
+            color: rgb(90, 36, 49);
+            font-family: DFKai-sb;
+        }
+        
+        .kikiitem .kikitext span {
+            font-size: 20px;
+            color: rgb(94, 6, 28);
+            font-family: FangSong;
+        }
+        
+        .kikiitem .kikipic img {
+            width: 680px;
+            height: 480px;
+            margin: 15px;
+        }
+        
+        @media screen and (min-width:768px) {
+            /*設定桌電及平板顯示*/
+            .item-group {
+                display: flex;
+                /*彈性盒子 又稱flexbox*/
+            }
+            .bth {
+                display: none;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                /*分散對齊*/
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+                /*透明顏色*/
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function link2course() {
+            course = prompt("請輸入信箱：", "請輸入您的電子信箱");
+            course2 = prompt('請輸入訊息（若商品有問題，請留下商品編號。）：', '請輸入訊息')
+            if (course != null && course2 != null)
+                alert('已收到您的回覆，我們將盡快為您處理。');
+        }
+    </script>
+    <input type="checkbox" name="" id="menu">
+
+    <div class="header">
+        <h1 class="logo">
+            <a href="#"><img src="https://pic.90sjimg.com/design/00/47/13/13/592243baaaec7.png" width="50px" height="50px">
+        </h1>
+
+        <label for="menu" class="bth"> 
+                <span style="color:rgb(59, 18, 11)">☰</span>
+        </label>
+
+        <nav>
+            <a href="index.html"><b>首頁</b></a>
+            <a href="about.html"><b>關於我們</b></a>
+            <a href="products.html"><b>商品專區</b></a>
+            <a href="javascript:link2course()"><b>聯絡資訊</b></a>
+        </nav>
+    </div>
+
+    <div class="bg">
+        <img src=https://images3.alphacoders.com/245/thumb-1920-245067.jpg>
+    </div>
+
+
+    <div class="about">
+        <div class="wrap">
+            <div class="title">
+                <h2><span style="font-family:DFKai-sb;">魔女の宅急便</span></h2>
+                <p>いらっしゃいませ</p>
+            </div>
+
+
+            <div class="three">
+                <div class="item-group">
+                    <div class="kikiitem ">
+                        <div class="kikipic ">
+                            <img src=https://img.alicdn.com/tfscom/i3/906318663/TB2APekAdRopuFjSZFtXXcanpXa_%21%21906318663.jpg>
+                        </div>
+                        <div class="kikitext">
+                            <h2>琪琪
+                                <p>𝕂𝕀𝕂𝕀</h2>
+                            <hr style="background-color:rgb(78, 38, 38) ;border-color: rgb(78, 38, 38); height:1.5px ">
+
+
+
+                            <span style="text-align: center;"><br><B>「麵包對我來說，已經和我的靈魂結為一體了。」</B></span>
+
+                            <span><p>&emsp;&emsp;看著麵包自然地發酵，是一件令人開心的事，因為美味的麵包，就來
+                                <br>自於酵母作用所散發的麥香。而與麵包相處數十年的歲月，小麥的香氣仍
+                                <br>讓我感到親切，因為「做麵包」帶給我許多人生的歷練與
+                                <br>啟發，越咀嚼越覺回味無窮。</P></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="item-group ">
+                <div class="item ">
+                    <div class="pic ">
+                        <img src="https://lh3.googleusercontent.com/proxy/Dp5QoTDLS0Q23JEuLpvKJSUQ9O1ofO7LS2QcIVMpngmXl9SZDRIvH3PZ5TdM_KsjgvN1ch8B__P9wCuBPBbWWSzOC7yJ_YcMWwUviadyhKLWf6DDMzg2d3l7keZbzi7jnzP02UPU4wM02INnIcihfEcyiJUFnKgVfMnDyoAQ4_X1aCFXeBOpPccmU7NC2Fx3ZoJWOBMNYm0eTTomtE80HgRDyiccxUM">
+                    </div>
+                    <div class="text ">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic ">
+                        <a href="aboutkiki.html "><img src="https://twgreatdaily.com/images/elastic/oKh/oKh4-W8Bgx9BqZZIYVOx.jpg "></a>
+                    </div>
+                    <div class="text ">
+                        <h3>琪琪（キキ）</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic ">
+                        <img src="https://bpic.588ku.com/element_origin_min_pic/17/09/19/3b14732a8e1f4f33047dcb004ecb0a08.jpg ">
+                    </div>
+                    <div class="text ">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic ">
+                        <a href="aboutSona.html"><img src="https://static.mercdn.net/item/detail/orig/photos/m57330657295_1.jpg?1565997781 "></a>
+                    </div>
+                    <div class="text ">
+                        <h3>索娜（おソノ）</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer ">
+        &copy; copyright 2020 by css
+    </div>
+
+
+
+
+
+</body>
+
+</html>

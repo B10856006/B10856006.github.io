@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>〈魔女の宅急便〉— 商品專區</title>
+    <link rel="icon" href="https://pic.90sjimg.com/design/00/47/13/13/592243baaaec7.png">
+    <style type="text/css">
+        * {
+            /*消除頁面框線*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            background-color: silver;
+            background-image: url('https://www.vegandaohe.com.tw/assets/front/images/@2x/img_bg_for_l@2x.png');
+        }
+        
+        .header {
+            height: 50px;
+            background-color: rgb(228, 188, 143);
+            position: relative;
+        }
+        
+        .bth {
+            width: 40px;
+            height: 40px;
+            display: block;
+            /*規定元素以區塊方式呈現*/
+            position: absolute;
+            /*相對於它的父元素進行絕對定位*/
+            top: 5px;
+            right: 10px;
+        }
+        
+        .bth span {
+            opacity: 0;
+            /*區塊內透明*/
+            width: 1px;
+            height: 1px;
+            display: block;
+            overflow: hidden;
+            /*自動隱藏超出的文字或圖片*/
+        }
+        
+        .bth::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: rgb(59, 18, 11);
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px rgb(59, 18, 11), 0px -8px 0px rgb(59, 18, 11);
+            /*影子*/
+        }
+        
+        nav {
+            width: 40%;
+            height: 300vh;
+            /*view height 是螢幕可是範圍高度的百分比*/
+            background-color: rgb(221, 166, 103);
+            position: absolute;
+            top: 50px;
+            left: -100%;
+        }
+        
+        nav a {
+            /*設置裡面的超連結*/
+            display: block;
+            /*link變直排*/
+            text-decoration: none;
+            color: rgb(119, 18, 18);
+            padding: 10px 20px;
+            border-bottom: 1px solid #993939;
+        }
+        
+        nav a:hover {
+            color: rgb(75, 57, 33);
+        }
+        
+        #menu {
+            position: absolute;
+            /*讓最上方的checkbox隱藏*/
+        }
+        
+        #menu:checked~.header nav {
+            left: 0;
+        }
+        
+        img {
+            vertical-align: bottom;
+        }
+        
+        .item-group {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+        }
+        
+        .bg img {
+            /*最上方圖片*/
+            width: 100%;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .title h2 {
+            text-align: center;
+            font-size: 46px;
+        }
+        
+        .title {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: rgb(228, 188, 143);
+            color: rgb(119, 18, 18)
+        }
+        
+        .title p {
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .item {
+            margin: 0 10px 20px;
+        }
+        
+        .item .text h3 {
+            font-size: 24px;
+            text-align: center;
+            color: rgb(51, 31, 8);
+        }
+        
+        .item .pic img {
+            /*設置全圖片*/
+            width: 330px;
+            height: 330px;
+        }
+        
+        .item .pic2 img {
+            /*設置全圖片*/
+            width: 100%;
+        }
+        
+        .item .pic3 img {
+            /*設置全圖片*/
+            width: 210px;
+            height: 210px;
+        }
+        
+        .two {
+            margin: 60px 0;
+            background-color: rgb(168, 156, 129);
+        }
+        
+        .two .item {
+            display: flex;
+            margin: 0;
+        }
+        
+        .two .item .text2 {
+            width: 1400px;
+            margin: 15px;
+        }
+        
+        .item .text2 h3 {
+            font-size: 24px;
+            text-align: center;
+            color: rgb(51, 31, 8);
+        }
+        
+        .two .item .pic2,
+        .two .item .text {
+            width: 650px;
+            margin: 15px;
+        }
+        
+        .two .item .text {
+            display: flex;
+            padding: 0 10px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        @media screen and (min-width:768px) {
+            /*設定桌電及平板顯示*/
+            .item-group {
+                display: flex;
+                /*彈性盒子 又稱flexbox*/
+            }
+            .bth {
+                display: none;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                /*分散對齊*/
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+                /*透明顏色*/
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function link2course() {
+            course = prompt("請輸入信箱：", "請輸入您的電子信箱");
+            course2 = prompt('請輸入訊息（若商品有問題，請留下商品編號。）：', '請輸入訊息')
+            if (course != null && course2 != null)
+                alert('已收到您的回覆，我們將盡快為您處理。');
+        }
+    </script>
+    <input type="checkbox" name="" id="menu">
+
+    <div class="header">
+        <h1 class="logo">
+            <a href="#"><img src="https://pic.90sjimg.com/design/00/47/13/13/592243baaaec7.png" width="50px" height="50px">
+        </h1>
+
+        <label for="menu" class="bth"> 
+                <span style="color:rgb(59, 18, 11)">☰</span>
+        </label>
+
+        <nav>
+            <a href="index.html"><b>首頁</b></a>
+            <a href="about.html"><b>關於我們</b></a>
+            <a href="products.html "><b>商品專區</b></a>
+            <a href="javascript:link2course()"><b>聯絡資訊</b></a>
+        </nav>
+    </div>
+
+    <div class="bg ">
+        <img src=https://images3.alphacoders.com/245/thumb-1920-245067.jpg>
+    </div>
+
+
+    <div class="about ">
+        <div class="wrap ">
+            <div class="title ">
+                <h2><span style="font-family:DFKai-sb; ">魔女の宅急便</span></h2>
+                <p>いらっしゃいませ</p>
+            </div>
+
+            <div class="two ">
+                <div class="wrap ">
+                    <div class="item-group ">
+                        <div class="item ">
+                            <div class="text2 ">
+                                <a name="3 ">
+                                    <h3><span style="font-family:DFKai-sb; ">調理鹹麵包</span></h3>
+                                    <h3> PRODUCTS </h3>
+                                    <hr style="background-color:rgb(78, 38, 38) ;border-color: rgb(78, 38, 38); height:1px ">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-group ">
+                <div class="item ">
+                    <div class="pic3 ">
+                        <img src="https://www.ihergo.com/photo/product/50/616050_1386314901228.jpg ">
+                    </div>
+                    <div class="text ">
+                        <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">✧雲朵吐司</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic3 ">
+                        <img src="https://8216.cyberbiz.tw/media/W1siZiIsIjgyMTYvcHJvZHVjdHMvMzU4NjM5L1x1ODlkMlx1ODBkNl9cdTU1NDZcdTU0YzFcdTRlM2JcdTU3MTZfMTBcdTU0NzNcdTcyNWJcdTg5ZDI0XzE5NS5qcGVnIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.jpeg?sha=897cc8bd588badc6 ">
+                    </div>
+                    <div class="text ">
+                        <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">✧牛角麵包</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic3 ">
+                        <img src="https://www.sunnyrock-jam.com/wp-content/uploads/2017/01/roll001.jpg ">
+                    </div>
+                    <div class="text ">
+                        <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">海鹽奶油捲</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic3 ">
+                        <img src="https://imageproxy.icook.network/resize?height=1200&nocrop=false&stripmeta=true&type=auto&url=http%3A%2F%2Ftokyo-kitchen.icook.tw.s3.amazonaws.com%2Fuploads%2Frecipe%2Fcover%2F234073%2F00050e412e99e0c3.jpg&width=1200 ">
+                    </div>
+                    <div class="text ">
+                        <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">帕馬森起司麵包</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic3 ">
+                        <img src="https://obs.line-scdn.net/0hKS4ej45JFHwJHDxlJUVrKzNKFxM6cAd_bSpFf0pySkhwKgcpNXsPEipJSRtweVMiYHtdGSwUD013fwMvMy0P/w644 ">
+                    </div>
+                    <div class="text ">
+                        <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">海鹽羅宋麵包</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic3 ">
+                        <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/vimdb/174022_71-1752-4775-4775.jpg ">
+                    </div>
+                    <div class="text ">
+                        <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">鮪魚沙拉麵包</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="two ">
+        <div class="wrap ">
+            <div class="item-group ">
+                <div class="item ">
+                    <div class="text2 ">
+                        <a>
+                            <h3><span style="font-family:DFKai-sb; ">日式甜麵包</span></h3>
+                            <h3> PRODUCTS </h3>
+                            <hr style="background-color:rgb(78, 38, 38) ;border-color: rgb(78, 38, 38); height:1px ">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-group ">
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://linetvl-staticfile.line-objects.com/article/picture/13d3049a-9397-4c07-98b7-74d4d1b20156.jpg ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">✧丹麥肉桂捲</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://lh3.googleusercontent.com/proxy/V9b885WahLb4fn08NoltS9A_IjnGpTM9CiBRHT4fTGhpoX-DLCsHuMSBef2V2vI3ydgR85u3aZfNxl50p4gjH8NG8O7y7ldQ045xt45xvhFk-giOhfVtwuIZSjk563LMc_zuDceREYg9CZAFHGxpKqo-yu1qcb5qqjY ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">✧紫薯麵包捲</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/vimdb/223362.jpg ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">日式紅豆麵包</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/vimdb/223313.jpg ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">爆漿芋泥麵包捲</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://image-cdn-flare.qdm.cloud/q6d7d47a2f64f1/image/cache/data/16fa943e7640474d442d12176c016fa1-max-w-1024.jpg ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">波羅奶酥麵包</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/1-1588049755.jpg?crop=0.497xw:0.994xh;0,0&resize=640:* ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">水果花三明治</h3>
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    <div class="two ">
+        <div class="wrap ">
+            <div class="item-group ">
+                <div class="item ">
+                    <div class="text2 ">
+                        <a>
+                            <h3><span style="font-family:DFKai-sb; ">歐式麵包</span></h3>
+                            <h3> PRODUCTS </h3>
+                            <hr style="background-color:rgb(78, 38, 38) ;border-color: rgb(78, 38, 38); height:1px ">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-group ">
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://5b0988e595225.cdn.sohucs.com/images/20190219/6a19aaff769d402588e7abfa9f60f3af.jpeg ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">✧草莓軟歐麵包</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://img-global.cpcdn.com/recipes/a9ee9010c6a364e64a471ae736865d34/751x532cq70/%E5%B7%A7%E5%85%8B%E5%8A%9B%E8%94%93%E8%B6%8A%E8%8E%93%E9%BA%B5%E5%8C%85-%E9%A3%9F%E8%AD%9C%E6%88%90%E5%93%81%E7%85%A7%E7%89%87.jpg ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">✧莓果三重奏</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://assets-ifuntuan-com.s3.amazonaws.com/uploads/pic/file/000/027/168/big_5d278f75-a045-42d1-b8be-704ad1750861.jpg ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">栗子南瓜小歐包</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://blog.kkday.com/wp-content/uploads/batch_shutterstock_448199014.jpg ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">法式長棍麵包</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://tshop.r10s.com/a63/fd3/342c/09b2/90e7/d66c/9bcf/1185e8ad7d2c600c428e6e.jpg?_ex=460x460 ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">起司核桃麵包</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://img.mp.sohu.com/upload/20170627/cfd87f3ced04483d9e2ef777d5a593c0_th.png ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:DFKai-sb;background-color: rgb(240, 237, 233);color:rgb(59, 18, 11) ">果乾麥片麵包</h3>
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    <div class="two ">
+        <div class="wrap ">
+            <div class="item-group ">
+                <div class="item ">
+                    <div class="text2 ">
+                        <a>
+                            <h3><span style="font-family:DFKai-sb; ">精緻糕點</span></h3>
+                            <h3> PRODUCTS </h3>
+                            <hr style="background-color:rgb(78, 38, 38) ;border-color: rgb(78, 38, 38); height:1px ">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="item-group ">
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://s3-ap-northeast-1.amazonaws.com/oneday-wordpress/wp-content/uploads/2017/03/07211521/1011065013.jpg ">
+            </div>
+            <div class="text ">
+                <h3>草莓奶茶戚風蛋糕</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://cf.shopee.tw/file/6aa715309fe3360c52b32bd57a060e6d ">
+            </div>
+            <div class="text ">
+                <h3>黑森林熔岩蛋糕</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://www.euthank.com.tw//upload/20171107183020nhb3w1.jpg ">
+            </div>
+            <div class="text ">
+                <h3>檸檬磅蛋糕</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://lh3.googleusercontent.com/proxy/rZlyheeO_RFMIH2QZYEcs5vRkoT5MKLS3cqocjGySFo2k61lSv-5pjaMDNuFToNDR96THeWDdrCWuCAXn9VJ9nhoioOue2y8d4-APhSYn0vaxFO5Gy37pJRJZdL_Y1yqfM8bD2zFR4Jk ">
+            </div>
+            <div class="text ">
+                <h3>夏季限定水果蛋糕</h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="footer ">
+        &copy; copyright 2020 by css
+    </div>
+
+</body>
+
+</html>
