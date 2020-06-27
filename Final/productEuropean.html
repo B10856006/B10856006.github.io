@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>〈魔女の宅急便〉— 關於我們</title>
+    <title>〈魔女の宅急便〉— 商品專區</title>
     <link rel="icon" href="https://pic.90sjimg.com/design/00/47/13/13/592243baaaec7.png">
     <style type="text/css">
         * {
@@ -17,12 +17,12 @@
         
         body {
             background-color: silver;
-            background-image: url('https://www.vegandaohe.com.tw/assets/front/images/@2x/img_bg_for_r@2x.png');
+            background-image: url('https://www.vegandaohe.com.tw/assets/front/images/@2x/img_bg_for_l@2x.png');
         }
         
         .header {
             height: 50px;
-            background-color: rgb(228, 188, 143);
+            background-color: #a79c8e;
             position: relative;
         }
         
@@ -53,11 +53,11 @@
             height: 2px;
             left: 2px;
             width: 36px;
-            background-color: rgb(59, 18, 11);
+            background-color: #534847;
             top: 0;
             bottom: 0;
             margin: auto;
-            box-shadow: 0px 8px 0px rgb(59, 18, 11), 0px -8px 0px rgb(59, 18, 11);
+            box-shadow: 0px 8px 0px#534847, 0px -8px 0px #534847;
             /*影子*/
         }
         
@@ -65,7 +65,7 @@
             width: 40%;
             height: 300vh;
             /*view height 是螢幕可是範圍高度的百分比*/
-            background-color: rgb(221, 166, 103);
+            background-color: #a79c8e;
             position: absolute;
             top: 50px;
             left: -100%;
@@ -76,9 +76,9 @@
             display: block;
             /*link變直排*/
             text-decoration: none;
-            color: rgb(119, 18, 18);
+            color: #272625;
             padding: 10px 20px;
-            border-bottom: 1px solid #993939;
+            border-bottom: 1px solid #272625;
         }
         
         nav a:hover {
@@ -94,6 +94,44 @@
             left: 0;
         }
         
+        .products {
+            margin: 0px auto;
+            text-align: center;
+        }
+        
+        ul {
+            list-style-type: none;
+            /* 去除項目清單的小黑點 */
+            margin: 0;
+            /* 清除項目清單的外間距 */
+            padding: 0;
+            /* 清除項目清單的內間距 */
+            color: #cb7575;
+        }
+        
+        li a {
+            display: block;
+            /* 將超連結設定為區塊模式 */
+            width: 330px;
+            /* 設定超連結區塊的寬度 */
+            height: 50px;
+            /* 設定超連結區塊的高度 */
+            line-height: 30px;
+            /* 設定超連結區塊的行高 */
+            text-indent: 190px;
+            /* 設定超連結區塊的文字內縮 */
+            text-decoration: none;
+            /* 去除超連結的底線 */
+            color: #353848;
+            font-size: 20px;
+            font-family: Microsoft JhengHei;
+            float: left;
+        }
+        
+        li a:hover {
+            color: rgb(75, 57, 33);
+        }
+        
         img {
             vertical-align: bottom;
         }
@@ -101,7 +139,7 @@
         .item-group {
             width: 100%;
             max-width: 1400px;
-            margin: auto;
+            margin: 0px auto;
         }
         
         .bg img {
@@ -110,8 +148,8 @@
         }
         
         .footer {
-            background-color: #333;
-            color: #aaa;
+            background-color: #a79c8e;
+            color: #272625;
             text-align: center;
             padding: 10px 0;
         }
@@ -119,13 +157,14 @@
         .title h2 {
             text-align: center;
             font-size: 46px;
+            font-family: DFKai-sb;
         }
         
         .title {
             margin: 0 0px 10px;
             padding: 20px 10px;
-            background-color: rgb(228, 188, 143);
-            color: rgb(119, 18, 18)
+            background-color: #a79c8e;
+            color: #3E4348
         }
         
         .title p {
@@ -134,7 +173,7 @@
         }
         
         .item {
-            margin: 0 10px 20px;
+            margin: 20px auto;
         }
         
         .item .text h3 {
@@ -147,8 +186,6 @@
             /*設置全圖片*/
             width: 330px;
             height: 330px;
-            display: block;
-            margin: auto;
         }
         
         .item .pic2 img {
@@ -156,24 +193,34 @@
             width: 100%;
         }
         
+        .item .pic3 img {
+            /*設置全圖片*/
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            display: block;
+            margin: auto;
+        }
+        
         .two {
             margin: 60px 0;
-            background-color: rgb(168, 156, 129);
         }
         
         .two .item {
             display: flex;
+            margin: 0;
         }
         
         .two .item .text2 {
-            width: 1400px;
-            margin: 15px;
+            margin: 0 0px 10px;
+            padding: 10px 10px;
+            color: #534847
         }
         
         .item .text2 h3 {
             font-size: 24px;
             text-align: center;
-            color: rgb(51, 31, 8);
+            color: #3E4348;
         }
         
         .two .item .pic2,
@@ -188,54 +235,6 @@
             box-sizing: border-box;
             flex-direction: column;
             justify-content: center;
-        }
-        
-        .three {
-            margin: 50px;
-            background: url('https://a-static.besthdwallpaper.com/mo-nu-zhai-ji-bian-ji-ji-he-qi-qi-qiangzhi-tw-1920x1080-20233_48.jpg');
-        }
-        
-        .three .kikiitem {
-            display: flex;
-        }
-        
-        .three .kikiitem .kikitext {
-            width: 1400px;
-            margin: 15px;
-            font-family: DFKai-sb;
-        }
-        
-        .three .kikiitem .kikipic,
-        .three .kikiitem .kikitext {
-            width: 680px;
-            margin: 15px;
-        }
-        
-        .three .kikiitem .kikitext {
-            display: flex;
-            padding: 0 10px;
-            box-sizing: border-box;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .kikiitem .kikitext h2 {
-            font-size: 40px;
-            text-align: center;
-            color: rgb(90, 36, 49);
-            font-family: DFKai-sb;
-        }
-        
-        .kikiitem .kikitext span {
-            font-size: 20px;
-            color: rgb(94, 6, 28);
-            font-family: FangSong;
-        }
-        
-        .kikiitem .kikipic img {
-            width: 680px;
-            height: 480px;
-            margin: 15px;
         }
         
         @media screen and (min-width:768px) {
@@ -293,99 +292,121 @@
         <nav>
             <a href="index.html"><b>首頁</b></a>
             <a href="about.html"><b>關於我們</b></a>
-            <a href="products.html"><b>商品專區</b></a>
+            <a href="products.html "><b>商品專區</b></a>
             <a href="javascript:link2course()"><b>聯絡資訊</b></a>
         </nav>
     </div>
 
-    <div class="bg">
+    <div class="bg ">
         <img src=https://images3.alphacoders.com/245/thumb-1920-245067.jpg>
     </div>
 
-
-    <div class="about">
-        <div class="wrap">
-            <div class="title">
-                <h2><span style="font-family:DFKai-sb;">魔女の宅急便</span></h2>
+    <div class="about ">
+        <div class="wrap ">
+            <div class="title ">
+                <h2>魔女の宅急便</h2>
                 <p>いらっしゃいませ</p>
             </div>
 
+            <div class="products">
+                <ul>
+                    <li><a href="productsalty.html">調理鹹麵包&nbsp;&nbsp;&nbsp;｜</a></li>
+                    <li><a href="productsweet.html">日式甜麵包&nbsp;&nbsp;&nbsp;｜</a></li>
+                    <li><a href="productEuropean.html">歐式麵包&nbsp;&nbsp;&nbsp;｜</a></li>
+                    <li><a href="productcake.html">精緻糕點</a></li>
+                </ul>
+            </div>
 
-            <div class="three">
-                <div class="item-group">
-                    <div class="kikiitem ">
-                        <div class="kikipic ">
-                            <img src=https://truth.bahamut.com.tw/s01/201401/fb158aafebe09fcde079eaf87bf9c364.JPG>
+            <div class="two ">
+                <div class="wrap ">
+                    <div class="item-group ">
+                        <div class="item ">
+                            <div class="text2 ">
+                                <a>
+                                    <h3><span style="font-family:DFKai-sb; ">｜歐式麵包&nbsp;&nbsp;</span></h3>
+                                    <h3>ᴘʀᴏᴅᴜᴄᴛ&nbsp;&nbsp;&nbsp;&nbsp;｜ </h3>
+                                </a>
+                            </div>
                         </div>
-                        <div class="kikitext">
-                            <h2>索娜
-                                <p>𝕊𝕆ℕ𝔸</h2>
-                            <hr style="background-color:rgb(78, 38, 38) ;border-color: rgb(78, 38, 38); height:1.5px ">
-
-
-
-                            <span style="text-align: center;"><br><B>「希望把美味分享出去，做出心中的典範。」</B></span>
-
-                            <span><p>&emsp;&emsp;開設自己的麵包店，是為了不讓學徒用錯誤的方式學習、不讓麵包師
-                                <br>傅因為感到沒有未來而焦慮。其實，很多事不是為了成功，而是你知道這
-                                <br>些事該做，現在努力的，無非是想讓世界看見台灣，讓台灣看見烘培師傅
-                                <br>，推動烘焙產業與社會共好，開創出全新而成熟的台灣面貌。
-                                </P></span>
-                        </div>
-
                     </div>
                 </div>
             </div>
 
+            <div class="item-group ">
+                <div class="item ">
+                    <div class="pic3 ">
+                        <img src="https://5b0988e595225.cdn.sohucs.com/images/20190219/6a19aaff769d402588e7abfa9f60f3af.jpeg ">
+                    </div>
+                    <div class="text ">
+                        <h3 style="font-family:Microsoft JhengHei;background-color: #c8c8a9;color:#282c37 ">草莓軟歐麵包</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic3 ">
+                        <img src="https://img-global.cpcdn.com/recipes/a9ee9010c6a364e64a471ae736865d34/751x532cq70/%E5%B7%A7%E5%85%8B%E5%8A%9B%E8%94%93%E8%B6%8A%E8%8E%93%E9%BA%B5%E5%8C%85-%E9%A3%9F%E8%AD%9C%E6%88%90%E5%93%81%E7%85%A7%E7%89%87.jpg ">
+                    </div>
+                    <div class="text ">
+                        <h3 style="font-family:Microsoft JhengHei;background-color: #f8ecc9;color:#282c37 ">莓果三重奏</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <div class="pic3 ">
+                        <img src="https://assets-ifuntuan-com.s3.amazonaws.com/uploads/pic/file/000/027/168/big_5d278f75-a045-42d1-b8be-704ad1750861.jpg ">
+                    </div>
+                    <div class="text ">
+                        <h3 style="font-family:Microsoft JhengHei;background-color: #c8c8a9;color:#282c37 ">栗子南瓜小歐包</h3>
+                        <p></p>
+                    </div>
+                </div>
 
-            <div class="item-group">
-                <div class="item">
-                    <div class="pic">
-                        <img src="img/最新消息.jpg">
-                    </div>
-                    <div class="text ">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="item ">
-                    <div class="pic ">
-                        <a href="aboutkiki.html "><img src="https://twgreatdaily.com/images/elastic/oKh/oKh4-W8Bgx9BqZZIYVOx.jpg "></a>
-                    </div>
-                    <div class="text ">
-                        <h3>琪琪（キキ）</h3>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="item ">
-                    <div class="pic ">
-                        <img src="https://bpic.588ku.com/element_origin_min_pic/17/09/19/3b14732a8e1f4f33047dcb004ecb0a08.jpg ">
-                    </div>
-                    <div class="text ">
-                        <h3></h3>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="item ">
-                    <div class="pic ">
-                        <a href="aboutSona.html"><img src="https://static.mercdn.net/item/detail/orig/photos/m57330657295_1.jpg?1565997781 "></a>
-                    </div>
-                    <div class="text ">
-                        <h3>索娜（おソノ）</h3>
-                        <p></p>
-                    </div>
-                </div>
+
+
             </div>
         </div>
     </div>
+    <div class="item-group ">
+
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://blog.kkday.com/wp-content/uploads/batch_shutterstock_448199014.jpg ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:Microsoft JhengHei;background-color: #f8ecc9;color:#282c37 ">法式長棍麵包</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://tshop.r10s.com/a63/fd3/342c/09b2/90e7/d66c/9bcf/1185e8ad7d2c600c428e6e.jpg?_ex=460x460 ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:Microsoft JhengHei;background-color: #c8c8a9;color:#282c37 ">起司核桃麵包</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic3 ">
+                <img src="https://img.mp.sohu.com/upload/20170627/cfd87f3ced04483d9e2ef777d5a593c0_th.png ">
+            </div>
+            <div class="text ">
+                <h3 style="font-family:Microsoft JhengHei;background-color: #f8ecc9;color:#282c37 ">果乾麥片麵包</h3>
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+
+
+
 
     <div class="footer ">
         &copy; copyright 2020 by css
     </div>
-
-
-
-
 
 </body>
 
